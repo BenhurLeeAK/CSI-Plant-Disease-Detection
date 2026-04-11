@@ -1,0 +1,185 @@
+PS C:\Users\benhu> & C:/Users/benhu/AppData/Local/Programs/Python/Python310/python.exe c:/Users/benhu/OneDrive/Desktop/csi_plant_data/Full_Analysis_Pipeline.py
+================================================================================
+CSI PLANT DISEASE DETECTION - COMPLETE ANALYSIS PIPELINE
+================================================================================
+
+📂 Loading and preprocessing data...
+Total samples: 3995
+Class distribution:
+1    1598
+2    1598
+0     799
+Name: label, dtype: int64
+
+📊 Dataset shape: (3995, 18)
+Features: 18 total features
+
+================================================================================
+PART 1: STATISTICAL ANALYSIS
+================================================================================
+
+📈 Mean Amplitude Comparisons:
+
+  Baseline vs Healthy 30cm:
+    Mean1: 14.021 ± 4.088
+    Mean2: 13.908 ± 3.316
+    T-test: t=0.603, p=0.546377
+    Cohen's d: 0.030 (small)
+
+  Baseline vs Diseased 30cm:
+    Mean1: 14.021 ± 4.088
+    Mean2: 17.574 ± 3.728
+    T-test: t=-18.146, p=0.000000
+    Cohen's d: -0.908 (large)
+
+  Healthy 30cm vs Diseased 30cm:
+    Mean1: 13.908 ± 3.316
+    Mean2: 17.574 ± 3.728
+    T-test: t=-20.757, p=0.000000
+    Cohen's d: -1.039 (large)
+
+  Diseased 30cm vs Diseased 45cm:
+    Mean1: 17.574 ± 3.728
+    Mean2: 17.477 ± 4.015
+    T-test: t=0.500, p=0.616881
+    Cohen's d: 0.025 (small)
+
+================================================================================
+PART 2: MACHINE LEARNING CLASSIFICATION
+================================================================================
+
+🔄 Training Logistic Regression...
+  ✓ Test Accuracy: 69.84%
+
+🔄 Training SVM (RBF)...
+  ✓ Test Accuracy: 79.85%
+
+🔄 Training Random Forest...
+  ✓ Test Accuracy: 83.73%
+
+🔄 Training Gradient Boosting...
+  ✓ Test Accuracy: 81.85%
+
+🔄 Training XGBoost...
+  ✓ Test Accuracy: 83.98%
+
+🔄 Training MLP Neural Network...
+  ✓ Test Accuracy: 82.85%
+
+📊 Model Performance Summary:
+              Model Test Accuracy F1-Score   MCC CV Mean CV Std
+Logistic Regression        69.84%    0.697 0.526  65.38%  9.13%
+          SVM (RBF)        79.85%    0.797 0.684  68.69%  7.22%
+      Random Forest        83.73%    0.838 0.747  73.77%  5.16%
+  Gradient Boosting        81.85%    0.818 0.716  72.54%  5.39%
+            XGBoost        83.98%    0.840 0.750  73.42%  6.01%
+ MLP Neural Network        82.85%    0.829 0.734  74.79%  6.37%
+
+================================================================================
+PART 3: FEATURE IMPORTANCE
+================================================================================
+
+🏆 Top 10 Most Important Features:
+  rssi                : 0.1270
+  region2_ratio       : 0.1074
+  kurtosis            : 0.0765
+  region2_mean        : 0.0762
+  fft_mean            : 0.0640
+  skewness            : 0.0624
+  std_amp             : 0.0566
+  region3_mean        : 0.0534
+  median_amp          : 0.0534
+  region3_ratio       : 0.0493
+
+================================================================================
+PART 4: ENSEMBLE MODEL
+================================================================================
+
+🎯 Ensemble Model (RF + XGBoost + GradientBoosting):
+  Test Accuracy: 84.61%
+
+================================================================================
+PART 5: CLASSIFICATION REPORT
+================================================================================
+
+Classification Report (Ensemble Model):
+              precision    recall  f1-score   support
+
+    Baseline       0.78      0.79      0.79       160
+     Healthy       0.88      0.86      0.87       320
+    Diseased       0.85      0.87      0.86       319
+
+    accuracy                           0.85       799
+   macro avg       0.84      0.84      0.84       799
+weighted avg       0.85      0.85      0.85       799
+
+
+Confusion Matrix:
+                 Predicted
+                 B   H   D
+Actual Baseline: 126  16  18
+       Healthy:   15 274  31
+       Diseased:  20  23 276
+
+📊 Per-class Precision:
+  Baseline: 0.783
+  Healthy: 0.875
+  Diseased: 0.849
+
+📊 Generating publication-quality figures...
+
+✅ Complete analysis finished! Figure saved as 'csi_complete_analysis.png'
+
+================================================================================
+PART 7: ADVANCED STATISTICAL ANALYSIS
+================================================================================
+
+📊 Bootstrap Confidence Intervals (95%):
+  Baseline Mean Amp: 14.021 (95% CI: 13.736-14.302)
+  Healthy Mean Amp: 13.908 (95% CI: 13.684-14.133)
+  Diseased Mean Amp: 17.574 (95% CI: 17.317-17.844)
+
+📈 Effect Size Interpretation:
+  Cohen's d < 0.2: Small effect (practically negligible)
+  Cohen's d 0.2-0.5: Medium effect (moderate practical significance)
+  Cohen's d > 0.8: Large effect (highly significant)
+
+  Healthy vs Diseased: d = -1.039 -> LARGE effect
+
+================================================================================
+SUMMARY FOR RESEARCH PAPER
+================================================================================
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           KEY FINDINGS                                        ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  📊 Diseased vs Healthy Plants (30cm):                                       ║
+║     • Mean amplitude difference: 17.57 vs 13.91        ║
+║     • Cohen's d = -1.039 (LARGE effect)                         ║
+║     • p-value < 0.000001 (statistically significant)                         ║
+║                                                                              ║
+║  🤖 Best Classification Performance:                                         ║
+║     • XGBoost Test Accuracy: 83.98%                ║
+║     • Ensemble Test Accuracy: 84.6%                               ║
+║     • 5-fold CV: 73.42% ± 6.01%          ║
+║                                                                              ║
+║  📈 Most Important Features:                                                ║
+║     • rssi: 0.1270                              ║
+║     • region2_ratio: 0.1074                              ║
+║     • kurtosis: 0.0765                              ║
+║                                                                              ║
+║  📏 Distance Independence:                                                  ║
+║     • Diseased 30cm vs 45cm: p = 0.6169        ║
+║     • Conclusion: Detection is consistent across 30-45cm range              ║
+║                                                                              ║
+║  🎯 Practical Implications:                                                 ║
+║     • Low-cost ESP32-based system (< $20) can detect plant disease          ║
+║     • Non-invasive, real-time monitoring possible                           ║
+║     • DePIN-ready architecture for agricultural IoT                         ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+✅ Analysis complete! Results ready for paper.
+PS C:\Users\benhu>  
