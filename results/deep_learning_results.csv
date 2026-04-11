@@ -1,0 +1,5 @@
+"Model,Test Accuracy (%)" 
+"MLP,79.85" 
+"1D CNN,77.60" 
+"LSTM,76.85" 
+"CNN-LSTM Hybrid,75.59" 
