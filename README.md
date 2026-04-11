@@ -30,19 +30,19 @@ Hardware Cost: < $20 | Accuracy: 86.23% | Real-time: 20 FPS
 
 
 
-| Metric    		  | Value 	   |
+| Metric    		          | Value 	       |
 
 |-------------------------|----------------|
 
 | 10-Fold CV Accuracy 	  | 86.23% ± 1.71% |
 
-| Healthy Plant F1-Score  | 85.9% 	   |
+| Healthy Plant F1-Score  | 85.9% 	       |
 
-| Diseased Plant F1-Score | 85.8% 	   |
+| Diseased Plant F1-Score | 85.8% 	       |
 
-| Inference Speed	  | 20 FPS (50ms)  |
+| Inference Speed	        | 20 FPS (50ms)  |
 
-| Hardware Cost		  | < $20	   |
+| Hardware Cost		        | < $20	         |
 
 
 
@@ -50,23 +50,23 @@ Hardware Cost: < $20 | Accuracy: 86.23% | Real-time: 20 FPS
 
 🏗️ System Architecture
 
-┌───────────────┐        WiFi 2.4 GHz        	   ┌───────────────┐          ┌───────────────┐
+┌───────────────┐        WiFi 2.4 GHz        	┌───────────────┐        ┌───────────────┐
 
-│   ESP32 TX         │ ─────────────────────────► │     PLANT     	│ ─────► │   ESP32 RX   	│
+│   ESP32 TX     │ ─────────────────────────► │     PLANT     │ ─────► │   ESP32 RX    │
 
-│ (Transmitter)      │                            	   │  (Diseased)  	│          │  (Receiver)   	│
+│ (Transmitter)  │                            │  (Diseased)  	│        │  (Receiver)   │
 
-└───────────────┘                            	   └───────────────┘          └──────┬────────┘
+└───────────────┘                            	└───────────────┘        └──────┬────────┘
 
-&#x20;                                                                           │
+&#x20;                                                                        │
 
-&#x20;                                                                           ▼
+&#x20;                                                                         ▼
 
 &#x20;                                                                   ┌───────────────┐
 
-&#x20;                                                                   │   ML Model    	 │
+&#x20;                                                                   │   ML Model    	│
 
-&#x20;                                                                   │   XGBoost     	 │
+&#x20;                                                                   │   XGBoost     	│
 
 &#x20;                                                                   └───────────────┘
 
@@ -80,13 +80,13 @@ Hardware Cost: < $20 | Accuracy: 86.23% | Real-time: 20 FPS
 
 
 
-| Component 		| Specification 	| Cost |
+| Component 	        	| Specification 	      | Cost |
 
 |-----------------------|-----------------------|------|
 
-| ESP32 DevKit (x2) 	| ESP32-D0WD-V3 	| \~$15 |
+| ESP32 DevKit (x2) 	  | ESP32-D0WD-V3 	      | \~$15 |
 
-| USB Cables (x2) 	| USB-A to Micro-USB 	| \~$5  |
+| USB Cables (x2) 	    | USB-A to Micro-USB   	| \~$5  |
 
 
 
