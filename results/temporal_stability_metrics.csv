@@ -1,0 +1,4 @@
+Condition,CV (lower=more stable),MSSD (lower=more stable),Time within ±1σ (%),Trend Slope,Autocorrelation (lag1),Rolling Std Stability
+Baseline,0.324,21.981,60.7%,-0.0017,0.424,0.892
+Healthy,0.257,18.384,68.4%,0.0012,0.315,0.636
+Diseased,0.222,20.525,82.7%,-0.0009,0.318,1.464
