@@ -1,0 +1,18 @@
+# Build files
+build/
+*.log
+*.bin
+*.elf
+*.map
+
+# ESP-IDF
+sdkconfig
+sdkconfig.old
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
